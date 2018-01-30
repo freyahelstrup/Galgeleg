@@ -73,11 +73,11 @@ public class LogicImpl extends UnicastRemoteObject implements LogicI {
     possibleWords.add("solsort");
     possibleWords.add("seksten");
     possibleWords.add("sytten");
-    reset();
+    resetGame();
   }
 
   @Override
-  public void reset() {
+  public void resetGame() {
     usedLetters.clear();
     wrongLettersCounter = 0;
     isGameWon = false;
@@ -173,6 +173,6 @@ public class LogicImpl extends UnicastRemoteObject implements LogicI {
     possibleWords.addAll(new HashSet<String>(Arrays.asList(data.split(" "))));
 
     System.out.println("possibleWords = " + possibleWords);
-    reset();
+    resetGame();
   }
 }

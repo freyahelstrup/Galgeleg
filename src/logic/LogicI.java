@@ -20,7 +20,7 @@ public interface LogicI extends java.rmi.Remote {
 
     boolean hasGameEnded();
 
-    void reset();
+    void resetGame();
 
     void guessLetter(String letter);
 
