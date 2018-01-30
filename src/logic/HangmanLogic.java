@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-public class HangmanLogic {
+public class HangmanLogic extends UnicastRemoteObject {
   /** AHT afprøvning er possibleWords synlig på pakkeniveau */
   ArrayList<String> possibleWords = new ArrayList<String>();
   private String word;
@@ -54,7 +55,7 @@ public class HangmanLogic {
   }
 
 
-  public HangmanLogic() {
+  public HangmanLogic() throws java.rmi.RemoteException {
     possibleWords.add("bil");
     possibleWords.add("computer");
     possibleWords.add("programmering");

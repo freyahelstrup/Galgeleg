@@ -2,75 +2,77 @@ package client;
 
 import logic.HangmanLogic;
 
+import java.rmi.Naming;
+
 public class HangmanClient {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
 
-    HangmanLogic spil = new HangmanLogic();
-    spil.reset();
+    HangmanLogic logic = (HangmanLogic) Naming.lookup("rmi://localhost:1099/hangmanlogic");
+    logic.reset();
 
     try {
-      spil.fetchWordsFromDR();
+      logic.fetchWordsFromDR();
     } catch (Exception e) {
       e.printStackTrace();
     }
-    spil.logStatus();
+    logic.logStatus();
 
-    spil.guessLetter("e");
-    spil.logStatus();
+    logic.guessLetter("e");
+    logic.logStatus();
 
-    spil.guessLetter("a");
-    spil.logStatus();
-    System.out.println("" + spil.getWrongLettersCounter());
-    System.out.println("" + spil.getVisibleWord());
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("a");
+    logic.logStatus();
+    System.out.println("" + logic.getWrongLettersCounter());
+    System.out.println("" + logic.getVisibleWord());
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("i");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("i");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("s");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("s");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("r");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("r");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("l");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("l");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("b");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("b");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("o");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("o");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("t");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("t");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("n");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("n");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("m");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("m");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("y");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("y");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("p");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("p");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
 
-    spil.guessLetter("g");
-    spil.logStatus();
-    if (spil.hasGameEnded()) return;
+    logic.guessLetter("g");
+    logic.logStatus();
+    if (logic.hasGameEnded()) return;
   }
 }
