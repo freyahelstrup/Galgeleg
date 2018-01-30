@@ -1,30 +1,31 @@
 package logic;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 public interface LogicI extends java.rmi.Remote {
 
-    List<String> getUsedLetters();
+    List<String> getUsedLetters() throws RemoteException;
 
-    String getVisibleWord();
+    String getVisibleWord() throws RemoteException;
 
-    String getWord();
+    String getWord() throws RemoteException;
 
-    int getWrongLettersCounter();
+    int getWrongLettersCounter() throws RemoteException;
 
-    boolean isLastLetterCorrect();
+    boolean isLastLetterCorrect() throws RemoteException;
 
-    boolean isGameWon();
+    boolean isGameWon() throws RemoteException;
 
-    boolean isGameLost();
+    boolean isGameLost() throws RemoteException;
 
-    boolean hasGameEnded();
+    boolean hasGameEnded() throws RemoteException;
 
-    void resetGame();
+    void resetGame() throws RemoteException;
 
-    void guessLetter(String letter);
+    void guessLetter(String letter) throws RemoteException;
 
-    void logStatus();
+    void logStatus() throws RemoteException;
 
     void fetchWordsFromDR() throws Exception;
 
