@@ -17,14 +17,20 @@ public class HangmanClient {
             System.out.println();
             System.out.println("1 Spil Galgeleg");
             System.out.println("2 Afslut programmet");
-            System.out.print("Skriv valg: ");
-            int menuItem = scanner.nextInt();
+
+            String enteredValue;
+            do {
+                System.out.print("Skriv valg: ");
+                enteredValue = scanner.next();
+            } while (!enteredValue.matches("[12]"));
+
+            int menuItem = Integer.parseInt(enteredValue);
 
             if (menuItem == 1) {
                 logic.resetGame();
 
                 while (true) {
-                    System.out.println("Ordet er: " + logic.getVisibleWord());
+                    System.out.println("Ordet er: " + logic.getVisibleWord().toUpperCase());
 
                     String guess;
                     do {
@@ -49,7 +55,7 @@ public class HangmanClient {
                     System.out.println("Desværre, du gættede ikke ordet");
                 }
 
-                System.out.println("Ordet var: " + logic.getWord());
+                System.out.println("Ordet var: " + logic.getWord().toUpperCase());
             }
 
             else if (menuItem == 2)
