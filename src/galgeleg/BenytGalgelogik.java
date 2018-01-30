@@ -4,71 +4,71 @@ public class BenytGalgelogik {
 
   public static void main(String[] args) {
 
-    Galgelogik spil = new Galgelogik();
-    spil.nulstil();
+    HangmanLogic spil = new HangmanLogic();
+    spil.reset();
 
     try {
-      spil.hentOrdFraDr();
+      spil.fetchWordsFromDR();
     } catch (Exception e) {
       e.printStackTrace();
     }
     spil.logStatus();
 
-    spil.gætBogstav("e");
+    spil.guessLetter("e");
     spil.logStatus();
 
-    spil.gætBogstav("a");
+    spil.guessLetter("a");
     spil.logStatus();
-    System.out.println("" + spil.getAntalForkerteBogstaver());
-    System.out.println("" + spil.getSynligtOrd());
-    if (spil.erSpilletSlut()) return;
+    System.out.println("" + spil.getWrongLettersCounter());
+    System.out.println("" + spil.getVisibleWord());
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("i");
+    spil.guessLetter("i");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("s");
+    spil.guessLetter("s");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("r");
+    spil.guessLetter("r");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("l");
+    spil.guessLetter("l");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("b");
+    spil.guessLetter("b");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("o");
+    spil.guessLetter("o");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("t");
+    spil.guessLetter("t");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("n");
+    spil.guessLetter("n");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("m");
+    spil.guessLetter("m");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("y");
+    spil.guessLetter("y");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("p");
+    spil.guessLetter("p");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
 
-    spil.gætBogstav("g");
+    spil.guessLetter("g");
     spil.logStatus();
-    if (spil.erSpilletSlut()) return;
+    if (spil.hasGameEnded()) return;
   }
 }
