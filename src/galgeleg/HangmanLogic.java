@@ -117,10 +117,10 @@ public class HangmanLogic {
 
   public void logStatus() {
     System.out.println("---------- ");
-    System.out.println("- word (skult) = " + word);
-    System.out.println("- visibleWord = " + visibleWord);
+    System.out.println("- ordet (skjult) = " + word);
+    System.out.println("- synligtOrd = " + visibleWord);
     System.out.println("- forkerteBogstaver = " + wrongLettersCounter);
-    System.out.println("- brugeBogstaver = " + usedLetters);
+    System.out.println("- brugteBogstaver = " + usedLetters);
     if (isGameLost) System.out.println("- SPILLET ER TABT");
     if (isGameWon) System.out.println("- SPILLET ER VUNDET");
     System.out.println("---------- ");
