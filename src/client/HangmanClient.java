@@ -3,76 +3,37 @@ package client;
 import logic.LogicI;
 
 import java.rmi.Naming;
+import java.util.Scanner;
 
 public class HangmanClient {
 
-  public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-    LogicI logic = (LogicI) Naming.lookup("rmi://localhost:1099/hangmanlogic");
-    logic.resetGame();
+        LogicI logic = (LogicI) Naming.lookup("rmi://localhost:1099/hangmanlogic");
+        logic.resetGame();
 
-    try {
-      logic.fetchWordsFromDR();
-    } catch (Exception e) {
-      e.printStackTrace();
+        logic.fetchWordsFromDR();
+        logic.resetGame();
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (!logic.hasGameEnded()) {
+            System.out.println("Ordet er: " + logic.getVisibleWord());
+            System.out.print("Gæt et bogstav: ");
+            String guess = scanner.next();
+
+            logic.guessLetter(guess);
+
+            System.out.println("Bogstavet var " + (logic.isLastLetterCorrect() ? "korrekt" : "forkert"));
+            System.out.println("----------------------");
+        }
+
+        if (logic.isGameWon()) {
+            System.out.println("Tillykke, du gættede ordet!");
+        } else {
+            System.out.println("Desværre, du gættede ikke ordet");
+        }
+
+        System.out.println("Ordet var: " + logic.getWord());
     }
-    logic.logStatus();
-
-    logic.guessLetter("e");
-    logic.logStatus();
-
-    logic.guessLetter("a");
-    logic.logStatus();
-    System.out.println("" + logic.getWrongLettersCounter());
-    System.out.println("" + logic.getVisibleWord());
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("i");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("s");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("r");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("l");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("b");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("o");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("t");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("n");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("m");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("y");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("p");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-
-    logic.guessLetter("g");
-    logic.logStatus();
-    if (logic.hasGameEnded()) return;
-  }
 }
