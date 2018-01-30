@@ -1,6 +1,8 @@
-package galgeleg;
+package client;
 
-public class BenytGalgelogik {
+import logic.HangmanLogic;
+
+public class HangmanClient {
 
   public static void main(String[] args) {
 
