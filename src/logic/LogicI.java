@@ -2,7 +2,7 @@ package logic;
 
 import java.util.List;
 
-public interface LogicI {
+public interface LogicI extends java.rmi.Remote {
 
     List<String> getUsedLetters();
 
