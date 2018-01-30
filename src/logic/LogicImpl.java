@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-public class HangmanLogic extends UnicastRemoteObject {
+public class LogicImpl extends UnicastRemoteObject implements LogicI {
   /** AHT afprøvning er possibleWords synlig på pakkeniveau */
   ArrayList<String> possibleWords = new ArrayList<String>();
   private String word;
@@ -21,41 +21,48 @@ public class HangmanLogic extends UnicastRemoteObject {
   private boolean isGameWon;
   private boolean isGameLost;
 
-
+  @Override
   public ArrayList<String> getUsedLetters() {
     return usedLetters;
   }
 
+  @Override
   public String getVisibleWord() {
     return visibleWord;
   }
 
+  @Override
   public String getWord() {
     return word;
   }
 
+  @Override
   public int getWrongLettersCounter() {
     return wrongLettersCounter;
   }
 
+  @Override
   public boolean isLastLetterCorrect() {
     return isLastLetterCorrect;
   }
 
+  @Override
   public boolean isGameWon() {
     return isGameWon;
   }
 
+  @Override
   public boolean isGameLost() {
     return isGameLost;
   }
 
+  @Override
   public boolean hasGameEnded() {
     return isGameLost || isGameWon;
   }
 
 
-  public HangmanLogic() throws java.rmi.RemoteException {
+  public LogicImpl() throws java.rmi.RemoteException {
     possibleWords.add("bil");
     possibleWords.add("computer");
     possibleWords.add("programmering");
@@ -69,6 +76,7 @@ public class HangmanLogic extends UnicastRemoteObject {
     reset();
   }
 
+  @Override
   public void reset() {
     usedLetters.clear();
     wrongLettersCounter = 0;
@@ -93,6 +101,7 @@ public class HangmanLogic extends UnicastRemoteObject {
     }
   }
 
+  @Override
   public void guessLetter(String letter) {
     if (letter.length() != 1) return;
     System.out.println("Der gættes på bogstavet: " + letter);
@@ -116,6 +125,7 @@ public class HangmanLogic extends UnicastRemoteObject {
     updateVisibleWord();
   }
 
+  @Override
   public void logStatus() {
     System.out.println("---------- ");
     System.out.println("- ordet (skjult) = " + word);
@@ -140,7 +150,7 @@ public class HangmanLogic extends UnicastRemoteObject {
     return sb.toString();
   }
 
-
+  @Override
   public void fetchWordsFromDR() throws Exception {
     String data = fetchUrl("https://dr.dk");
     //System.out.println("data = " + data);

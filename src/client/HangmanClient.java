@@ -1,6 +1,6 @@
 package client;
 
-import logic.HangmanLogic;
+import logic.LogicImpl;
 
 import java.rmi.Naming;
 
@@ -8,7 +8,7 @@ public class HangmanClient {
 
   public static void main(String[] args) throws Exception {
 
-    HangmanLogic logic = (HangmanLogic) Naming.lookup("rmi://localhost:1099/hangmanlogic");
+    LogicImpl logic = (LogicImpl) Naming.lookup("rmi://localhost:1099/hangmanlogic");
     logic.reset();
 
     try {
