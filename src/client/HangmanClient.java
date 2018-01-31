@@ -44,11 +44,12 @@ public class HangmanClient {
                     if (logic.hasGameEnded())
                         break;
 
+                    System.out.println("----------------------");
                     System.out.println("Bogstavet var " + (logic.isLastLetterCorrect() ? "korrekt" : "forkert") + ".");
                     System.out.println("Du har nu " + (7 - logic.getWrongLettersCounter()) + " gæt tilbage.");
-                    System.out.println("----------------------");
                 }
 
+                System.out.println("----------------------\n");
                 if (logic.isGameWon()) {
                     System.out.println("Tillykke, du gættede ordet!");
                 } else {
